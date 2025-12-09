@@ -47,7 +47,7 @@ class StreakCard extends StatelessWidget {
                     ),
                   ],
                 ),
-                child: Icon(Icons.local_fire_department, color: AppTheme.warmGold, size: 28),
+                child: const Icon(Icons.local_fire_department, color: AppTheme.warmGold, size: 28),
               ),
               const SizedBox(width: 16),
               Column(

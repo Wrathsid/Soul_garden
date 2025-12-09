@@ -1,6 +1,7 @@
 import 'package:flutter_riverpod/flutter_riverpod.dart';
-import '../data/rituals_repository.dart';
+
 import '../data/ritual_completion_model.dart';
+import '../data/rituals_repository.dart';
 
 final ritualsProvider = FutureProvider<List<RitualCompletion>>((ref) async {
   final repo = ref.watch(ritualsRepositoryProvider);

@@ -1,14 +1,14 @@
 // Basic Flutter widget test for SoulGarden app.
 
 import 'package:flutter_test/flutter_test.dart';
-import 'package:soul_garden/main.dart';
+import 'package:flutter/material.dart';
+import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:soul_garden/features/garden/presentation/garden_screen.dart';
 
 void main() {
-  testWidgets('SoulGarden app launches', (WidgetTester tester) async {
-    // Build our app and trigger a frame.
-    await tester.pumpWidget(const SoulGardenApp());
-
-    // Verify that the app launches (basic smoke test)
-    expect(find.text('Garden'), findsOneWidget);
+  testWidgets('Garden screen shows greeting', (WidgetTester tester) async {
+    await tester.pumpWidget(const ProviderScope(child: MaterialApp(home: GardenScreen())));
+    await tester.pumpAndSettle(const Duration(seconds: 2));
+    expect(find.textContaining('Good'), findsOneWidget);
   });
 }

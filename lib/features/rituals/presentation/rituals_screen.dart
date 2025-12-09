@@ -73,8 +73,8 @@ class _RitualsScreenState extends ConsumerState<RitualsScreen> {
                 ),
               ),
             ),
-            Padding(
-              padding: const EdgeInsets.fromLTRB(20, 0, 20, 16),
+            const Padding(
+              padding: EdgeInsets.fromLTRB(20, 0, 20, 16),
               child: Text(
                 'Daily practices for inner peace',
                 style: TextStyle(
@@ -218,7 +218,7 @@ class _RitualsScreenState extends ConsumerState<RitualsScreen> {
             ),
             // Premium badge (if applicable)
             if (isPremium)
-              Positioned(
+              const Positioned(
                 top: 0,
                 left: 0,
                 child: Icon(Icons.workspace_premium, color: Colors.amber, size: 18),

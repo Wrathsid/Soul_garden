@@ -34,7 +34,7 @@ class AppTheme {
       brightness: Brightness.dark,
       primaryColor: secondaryAccent,
       scaffoldBackgroundColor: deepBackground,
-      colorScheme: ColorScheme.dark(
+      colorScheme: const ColorScheme.dark(
         primary: secondaryAccent,
         secondary: softHighlight,
         surface: primarySurface,
@@ -103,7 +103,7 @@ class AppTheme {
         ),
         iconTheme: const IconThemeData(color: textPrimary),
       ),
-      bottomNavigationBarTheme: BottomNavigationBarThemeData(
+      bottomNavigationBarTheme: const BottomNavigationBarThemeData(
         backgroundColor: primarySurface,
         selectedItemColor: lightAccent,
         unselectedItemColor: softHighlight,
@@ -158,9 +158,9 @@ class AppTheme {
           borderRadius: BorderRadius.circular(20),
         ),
       ),
-      bottomSheetTheme: BottomSheetThemeData(
+      bottomSheetTheme: const BottomSheetThemeData(
         backgroundColor: primarySurface,
-        shape: const RoundedRectangleBorder(
+        shape: RoundedRectangleBorder(
           borderRadius: BorderRadius.vertical(top: Radius.circular(24)),
         ),
       ),

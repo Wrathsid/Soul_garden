@@ -28,7 +28,7 @@ class AppButton extends StatelessWidget {
           foregroundColor: isSecondary ? AppTheme.secondaryAccent : Colors.white,
           shadowColor: isSecondary ? Colors.transparent : AppTheme.secondaryAccent.withAlpha(100),
           elevation: isSecondary ? 0 : 4,
-          side: isSecondary ? BorderSide(color: AppTheme.secondaryAccent, width: 2) : null,
+          side: isSecondary ? const BorderSide(color: AppTheme.secondaryAccent, width: 2) : null,
           shape: RoundedRectangleBorder(
             borderRadius: BorderRadius.circular(16),
           ),

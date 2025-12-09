@@ -1,9 +1,9 @@
 import 'dart:ui';
 import 'package:flutter/material.dart';
-import '../../domain/milestone.dart';
+import '../../data/milestone_repository.dart';
 
 class MilestoneCard extends StatelessWidget {
-  final Milestone milestone;
+  final UserMilestone milestone;
 
   const MilestoneCard({super.key, required this.milestone});
 
@@ -41,7 +41,7 @@ class MilestoneCard extends StatelessWidget {
                   shape: BoxShape.circle,
                 ),
                 child: Icon(
-                  milestone.icon ?? Icons.star,
+                  milestone.definition.icon,
                   color: iconColor,
                   size: 24,
                 ),
@@ -53,7 +53,7 @@ class MilestoneCard extends StatelessWidget {
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
                     Text(
-                      milestone.title,
+                      milestone.definition.title,
                       style: Theme.of(context).textTheme.titleMedium?.copyWith(
                             fontWeight: FontWeight.bold,
                             color: Colors.white.withValues(alpha: opacity),
@@ -61,11 +61,34 @@ class MilestoneCard extends StatelessWidget {
                     ),
                     const SizedBox(height: 4),
                     Text(
-                      milestone.description,
+                      milestone.definition.description,
                       style: Theme.of(context).textTheme.bodySmall?.copyWith(
                             color: Colors.white.withValues(alpha: opacity * 0.7),
                           ),
                     ),
+                    // Progress bar for incomplete milestones
+                    if (!milestone.isCompleted) ...[
+                      const SizedBox(height: 8),
+                      ClipRRect(
+                        borderRadius: BorderRadius.circular(4),
+                        child: LinearProgressIndicator(
+                          value: milestone.progressPercent,
+                          backgroundColor: Colors.white.withValues(alpha: 0.1),
+                          valueColor: AlwaysStoppedAnimation<Color>(
+                            Colors.amber.withValues(alpha: 0.7),
+                          ),
+                          minHeight: 4,
+                        ),
+                      ),
+                      const SizedBox(height: 4),
+                      Text(
+                        '${milestone.currentProgress}/${milestone.definition.targetValue}',
+                        style: TextStyle(
+                          color: Colors.white.withValues(alpha: 0.5),
+                          fontSize: 10,
+                        ),
+                      ),
+                    ],
                   ],
                 ),
               ),
@@ -94,7 +117,7 @@ class MilestoneCard extends StatelessWidget {
                      ),
                      const SizedBox(height: 2),
                      Text(
-                       '+${milestone.rewardXp} XP',
+                       '+${milestone.definition.rewardXp} XP',
                        style: TextStyle(
                          color: Colors.amber.withValues(alpha: 0.7),
                          fontSize: 10,

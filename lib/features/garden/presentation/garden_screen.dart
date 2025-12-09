@@ -133,11 +133,11 @@ class _GardenScreenState extends ConsumerState<GardenScreen> {
           ),
         ],
       ),
-      child: Row(
+      child: const Row(
         mainAxisAlignment: MainAxisAlignment.center,
         children: [
           Icon(Icons.local_fire_department, color: AppTheme.warmGold, size: 20),
-          const SizedBox(width: 8),
+          SizedBox(width: 8),
           Text(
             '$streakDays-day growth streak',
             style: TextStyle(
@@ -170,12 +170,12 @@ class _GardenScreenState extends ConsumerState<GardenScreen> {
       child: Row(
         mainAxisAlignment: MainAxisAlignment.center,
         children: [
-          Icon(Icons.star, color: AppTheme.warmGold, size: 20),
+          const Icon(Icons.star, color: AppTheme.warmGold, size: 20),
           const SizedBox(width: 8),
           Flexible(
             child: Text(
               '$xp XP · ${_getXpTierName(xp)}',
-              style: TextStyle(
+              style: const TextStyle(
                 color: AppTheme.warmGold,
                 fontWeight: FontWeight.bold,
                 fontSize: 12,

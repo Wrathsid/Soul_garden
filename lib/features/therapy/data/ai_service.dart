@@ -5,7 +5,7 @@ class SolAiService {
   late final GenerativeModel _model;
   late final ChatSession _chat;
   
-  static const String _systemPrompt = """
+  static const String _systemPrompt = '''
 You are Sol, a gentle AI companion inside an app called SoulGarden.  
 Your role is to help users process their emotions in a safe, supportive, non-judgmental way.  
 Always:
@@ -20,17 +20,17 @@ Tone:
 - Warm, calm, soft, encouraging.
 - Slightly poetic but still practical.
 - Short to medium-sized responses; not essays.
-""";
+''';
 
   SolAiService() {
     _model = GenerativeModel(
-      model: 'gemini-1.5-flash',
+      model: 'gemini-2.0-flash',
       apiKey: AppSecrets.googleGeminiApiKey,
     );
     _chat = _model.startChat(
       history: [
         Content.text(_systemPrompt),
-        Content.model([TextPart("I understand. I am Sol, your gentle garden companion. I am listening. 🌿")]),
+        Content.model([TextPart('I understand. I am Sol, your gentle garden companion. I am listening. 🌿')]),
       ],
     );
   }
@@ -41,7 +41,11 @@ Tone:
       final response = await _chat.sendMessage(Content.text(message));
       return response.text ?? "I'm having trouble connecting with the garden right now. 🍂";
     } catch (e) {
+      if (e.toString().contains('API key not valid')) {
+        return "It seems my connection to the stars is a bit fuzzy. Please check your API Key in `lib/secrets.dart` to ensure it's valid. ✨";
+      }
       return "The wind is blowing too hard, and I can't hear you clearly right now. Please try again in a moment. ($e)";
     }
+
   }
 }

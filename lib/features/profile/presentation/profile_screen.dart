@@ -1,11 +1,13 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:flutter_animate/flutter_animate.dart';
+import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:google_fonts/google_fonts.dart';
+
 import '../../../core/theme/app_theme.dart';
+import '../data/milestone_repository.dart';
 import 'profile_providers.dart';
-import 'widgets/milestone_card.dart';
 import 'widgets/level_card.dart';
+import 'widgets/milestone_card.dart';
 import 'widgets/streak_card.dart';
 
 class ProfileScreen extends ConsumerWidget {
@@ -173,11 +175,11 @@ class ProfileScreen extends ConsumerWidget {
                             child: Row(
                               mainAxisSize: MainAxisSize.min,
                               children: [
-                                Icon(Icons.star, color: AppTheme.warmGold, size: 16),
+                                const Icon(Icons.star, color: AppTheme.warmGold, size: 16),
                                 const SizedBox(width: 6),
                                 Text(
                                   '$xp XP · ${_getXpTierName(xp)}',
-                                  style: TextStyle(
+                                  style: const TextStyle(
                                     color: AppTheme.warmGold,
                                     fontWeight: FontWeight.w600,
                                     fontSize: 13,
@@ -236,10 +238,10 @@ class ProfileScreen extends ConsumerWidget {
                     borderRadius: BorderRadius.circular(16),
                     border: Border.all(color: AppTheme.softHighlight.withAlpha(50)),
                   ),
-                  child: Row(
+                  child: const Row(
                     children: [
                       Icon(Icons.auto_stories, color: AppTheme.warmPeach, size: 24),
-                      const SizedBox(width: 12),
+                      SizedBox(width: 12),
                       Expanded(
                         child: Text(
                           "You've written $journalCount journals and completed $ritualCount ritual so far.",

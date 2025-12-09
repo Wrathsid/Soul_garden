@@ -36,7 +36,7 @@ class _JournalScreenState extends ConsumerState<JournalScreen> {
       final aiService = ref.read(therapyServiceProvider);
       // We send it as a message to Sol so it remembers context
       final reflection = await aiService.sendMessage(
-        "I just wrote this journal entry: \"$text\". Please give me one short, gentle reflection on it."
+        'I just wrote this journal entry: "$text". Please give me one short, gentle reflection on it.'
       );
 
       if (!mounted) return;

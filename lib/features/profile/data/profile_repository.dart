@@ -1,7 +1,8 @@
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:supabase_flutter/supabase_flutter.dart';
-import '../../../services/supabase_client.dart';
+
 import '../../../core/constants.dart';
+import '../../../services/supabase_client.dart';
 import 'profile_model.dart';
 
 final profileRepositoryProvider = Provider((ref) => ProfileRepository());

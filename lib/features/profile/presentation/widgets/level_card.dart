@@ -1,7 +1,9 @@
 import 'dart:ui';
+
 import 'package:flutter/material.dart';
-import '../../../../core/theme/app_theme.dart';
 import 'package:flutter_animate/flutter_animate.dart';
+
+import '../../../../core/theme/app_theme.dart';
 
 class LevelCard extends StatelessWidget {
   final int xp;
@@ -87,7 +89,7 @@ class LevelCard extends StatelessWidget {
                     child: Row(
                       mainAxisSize: MainAxisSize.min,
                       children: [
-                        Icon(Icons.star, color: AppTheme.warmGold, size: 16),
+                        const Icon(Icons.star, color: AppTheme.warmGold, size: 16),
                         const SizedBox(width: 4),
                         Text(
                           '$xp XP',
@@ -107,7 +109,7 @@ class LevelCard extends StatelessWidget {
                 child: LinearProgressIndicator(
                   value: progress,
                   backgroundColor: Colors.white.withAlpha(26),
-                  valueColor: AlwaysStoppedAnimation<Color>(AppTheme.warmGold),
+                  valueColor: const AlwaysStoppedAnimation<Color>(AppTheme.warmGold),
                   minHeight: 8,
                 ),
               ).animate(target: 1).shimmer(duration: 2.seconds, delay: 500.ms, color: Colors.white.withAlpha(50)),

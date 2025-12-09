@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
+
+import '../../../core/theme/app_theme.dart';
 import 'gradient_background.dart';
 
 class ScaffoldWithNavBar extends StatelessWidget {
@@ -15,15 +17,7 @@ class ScaffoldWithNavBar extends StatelessWidget {
     return GradientBackground(
       child: Scaffold(
         backgroundColor: Colors.transparent,
-        body: AnimatedSwitcher(
-          duration: const Duration(milliseconds: 300),
-          switchInCurve: Curves.easeOut,
-          switchOutCurve: Curves.easeIn,
-          child: KeyedSubtree(
-            key: ValueKey(navigationShell.currentIndex),
-            child: navigationShell,
-          ),
-        ),
+        body: navigationShell, // The shell will render AnimatedBranchContainer internally
         bottomNavigationBar: Container(
           decoration: BoxDecoration(
             boxShadow: [
@@ -66,6 +60,10 @@ class ScaffoldWithNavBar extends StatelessWidget {
               ],
               currentIndex: navigationShell.currentIndex,
               onTap: (int index) => _onTap(context, index),
+              type: BottomNavigationBarType.fixed,
+              selectedItemColor: AppTheme.secondaryAccent,
+              unselectedItemColor: Colors.grey,
+              showUnselectedLabels: true,
             ),
           ),
         ),

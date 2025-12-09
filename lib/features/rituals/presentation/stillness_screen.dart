@@ -1,5 +1,6 @@
-import 'package:flutter/material.dart';
 import 'dart:async';
+
+import 'package:flutter/material.dart';
 
 class StillnessScreen extends StatefulWidget {
   const StillnessScreen({super.key});
@@ -127,8 +128,8 @@ class _StillnessScreenState extends State<StillnessScreen> {
             const SizedBox(height: 8),
             Text(
               'Step ${_currentStep + 1} of ${_steps.length}',
-              style: TextStyle(
-                color: const Color(0xFF7DA0CA),
+              style: const TextStyle(
+                color: Color(0xFF7DA0CA),
                 fontSize: 12,
               ),
             ),
@@ -139,12 +140,12 @@ class _StillnessScreenState extends State<StillnessScreen> {
             Container(
               padding: const EdgeInsets.all(32),
               decoration: BoxDecoration(
-                gradient: LinearGradient(
+                gradient: const LinearGradient(
                   begin: Alignment.topCenter,
                   end: Alignment.bottomCenter,
                   colors: [
-                    const Color(0xFF052659),
-                    const Color(0xFF021024),
+                    Color(0xFF052659),
+                    Color(0xFF021024),
                   ],
                 ),
                 borderRadius: BorderRadius.circular(24),
@@ -189,8 +190,8 @@ class _StillnessScreenState extends State<StillnessScreen> {
                   else
                     Text(
                       '${step['duration']} seconds',
-                      style: TextStyle(
-                        color: const Color(0xFF7DA0CA),
+                      style: const TextStyle(
+                        color: Color(0xFF7DA0CA),
                         fontSize: 14,
                       ),
                     ),

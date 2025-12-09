@@ -12,16 +12,16 @@ class _AffirmationsScreenState extends State<AffirmationsScreen> {
   final PageController _pageController = PageController();
 
   final List<String> _affirmations = [
-    "I release all tension from my body and mind.",
-    "I am calm, centered, and at peace.",
-    "I let go of stress and embrace tranquility.",
-    "My breath flows easily and deeply.",
-    "I am worthy of rest and relaxation.",
-    "Every exhale releases negativity from my being.",
-    "I am present in this moment, and all is well.",
-    "I choose peace over worry.",
-    "My body knows how to heal and restore itself.",
-    "I am safe, I am supported, I am loved.",
+    'I release all tension from my body and mind.',
+    'I am calm, centered, and at peace.',
+    'I let go of stress and embrace tranquility.',
+    'My breath flows easily and deeply.',
+    'I am worthy of rest and relaxation.',
+    'Every exhale releases negativity from my being.',
+    'I am present in this moment, and all is well.',
+    'I choose peace over worry.',
+    'My body knows how to heal and restore itself.',
+    'I am safe, I am supported, I am loved.',
   ];
 
   @override

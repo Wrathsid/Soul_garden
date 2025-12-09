@@ -1,12 +1,13 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
-import 'package:intl/intl.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:intl/intl.dart';
+
+import '../../../core/theme/app_theme.dart';
 import '../../../core/widgets/app_card.dart';
 import '../../../core/widgets/loading_state.dart';
-import '../../../core/theme/app_theme.dart';
-import '../../garden/presentation/garden_providers.dart';
 import '../../garden/data/mood_entry_model.dart';
+import '../../garden/presentation/garden_providers.dart';
 
 class JourneyScreen extends ConsumerStatefulWidget {
   const JourneyScreen({super.key});
@@ -122,7 +123,7 @@ class _JourneyScreenState extends ConsumerState<JourneyScreen> {
               shape: BoxShape.circle,
             ),
             padding: const EdgeInsets.all(30),
-            child: Icon(Icons.eco, size: 60, color: AppTheme.softHighlight),
+            child: const Icon(Icons.eco, size: 60, color: AppTheme.softHighlight),
           ),
           const SizedBox(height: 32),
           Text(

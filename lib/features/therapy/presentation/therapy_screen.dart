@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:flutter_animate/flutter_animate.dart';
+import 'package:flutter_riverpod/flutter_riverpod.dart';
+
 import '../../../core/theme/app_theme.dart';
 import 'therapy_providers.dart';
 import 'widgets/chat_bubble.dart';
@@ -73,7 +74,7 @@ class _TherapyScreenState extends ConsumerState<TherapyScreen> {
                     ),
                   ],
                 ),
-                child: Icon(Icons.auto_awesome, color: AppTheme.warmGold, size: 20),
+                child: const Icon(Icons.auto_awesome, color: AppTheme.warmGold, size: 20),
               ),
               const SizedBox(width: 10),
               Text(
@@ -127,7 +128,7 @@ class _TherapyScreenState extends ConsumerState<TherapyScreen> {
                       ),
                     ],
                   ),
-                  child: Icon(Icons.auto_awesome, color: AppTheme.warmGold, size: 16),
+                  child: const Icon(Icons.auto_awesome, color: AppTheme.warmGold, size: 16),
                 ),
                 Container(
                   margin: const EdgeInsets.symmetric(vertical: 4),
@@ -145,7 +146,7 @@ class _TherapyScreenState extends ConsumerState<TherapyScreen> {
                   child: Row(
                     mainAxisSize: MainAxisSize.min,
                     children: [
-                      const Text("Sol is reflecting", style: TextStyle(color: Colors.grey, fontStyle: FontStyle.italic)),
+                      const Text('Sol is reflecting', style: TextStyle(color: Colors.grey, fontStyle: FontStyle.italic)),
                       const SizedBox(width: 4),
                       ...List.generate(3, (i) => 
                          Padding(
@@ -186,7 +187,7 @@ class _TherapyScreenState extends ConsumerState<TherapyScreen> {
                     ),
                   ],
                 ),
-                child: Icon(Icons.auto_awesome, color: AppTheme.warmGold, size: 16),
+                child: const Icon(Icons.auto_awesome, color: AppTheme.warmGold, size: 16),
               ),
               Expanded(
                 child: ChatBubble(
@@ -228,6 +229,7 @@ class _TherapyScreenState extends ConsumerState<TherapyScreen> {
                   controller: _controller,
                   decoration: InputDecoration(
                     hintText: 'Talk to Sol...',
+                    hintStyle: TextStyle(color: Colors.grey.shade500),
                     border: OutlineInputBorder(
                       borderRadius: BorderRadius.circular(24),
                       borderSide: BorderSide.none,
@@ -236,6 +238,7 @@ class _TherapyScreenState extends ConsumerState<TherapyScreen> {
                     fillColor: Colors.grey.shade100,
                     contentPadding: const EdgeInsets.symmetric(horizontal: 20, vertical: 12),
                   ),
+                  style: const TextStyle(color: Colors.black87),
                   textCapitalization: TextCapitalization.sentences,
                   onSubmitted: (_) => _handleSend(),
                 ),
@@ -283,7 +286,7 @@ class _TherapyScreenState extends ConsumerState<TherapyScreen> {
                 BoxShadow(color: AppTheme.warmPeach.withAlpha(40), blurRadius: 50, spreadRadius: 20),
               ]
             ),
-            child: Icon(Icons.auto_awesome, size: 60, color: AppTheme.warmGold),
+            child: const Icon(Icons.auto_awesome, size: 60, color: AppTheme.warmGold),
           ).animate(onPlay: (c) => c.repeat(reverse: true))
            .scale(begin: const Offset(1,1), end: const Offset(1.1, 1.1), duration: 2.seconds),
           
@@ -291,7 +294,7 @@ class _TherapyScreenState extends ConsumerState<TherapyScreen> {
           
           // Personalized greeting with name and streak
           Text(
-            "Hi $_userName!",
+            'Hi $_userName!',
             style: Theme.of(context).textTheme.headlineMedium?.copyWith(
               fontWeight: FontWeight.bold,
               color: const Color(0xFF2C3E50),
@@ -330,7 +333,7 @@ class _TherapyScreenState extends ConsumerState<TherapyScreen> {
           Align(
             alignment: Alignment.centerLeft,
             child: Text(
-              "Recent Sessions",
+              'Recent Sessions',
               style: Theme.of(context).textTheme.titleMedium?.copyWith(
                 fontWeight: FontWeight.bold, 
                 color: Colors.grey[800]
@@ -338,9 +341,9 @@ class _TherapyScreenState extends ConsumerState<TherapyScreen> {
             ),
           ),
           const SizedBox(height: 16),
-          _buildRecentSessionItem("Understanding Anxiety", "Yesterday • 15 min"),
-          _buildRecentSessionItem("Gratitude Practice", "2 days ago • 10 min"),
-          _buildRecentSessionItem("Weekly Reflection", "5 days ago • 20 min"),
+          _buildRecentSessionItem('Understanding Anxiety', 'Yesterday • 15 min'),
+          _buildRecentSessionItem('Gratitude Practice', '2 days ago • 10 min'),
+          _buildRecentSessionItem('Weekly Reflection', '5 days ago • 20 min'),
         ],
       ),
     );
@@ -361,7 +364,7 @@ class _TherapyScreenState extends ConsumerState<TherapyScreen> {
             color: AppTheme.secondaryAccent.withAlpha(26),
             shape: BoxShape.circle,
           ),
-          child: Icon(Icons.history, color: AppTheme.secondaryAccent, size: 20),
+          child: const Icon(Icons.history, color: AppTheme.secondaryAccent, size: 20),
         ),
         title: Text(title, style: const TextStyle(fontWeight: FontWeight.w600)),
         subtitle: Text(subtitle, style: const TextStyle(fontSize: 12)),
